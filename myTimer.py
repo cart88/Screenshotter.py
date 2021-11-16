@@ -35,6 +35,9 @@ def printTime(inc):
     screenshot.CreateCompatibleBitmap(img_dc, width, height)
     mem_dc.SelectObject(screenshot)
 
+    logging.debug(f"{width}:{height}:{left}:{top}")
+    logging.debug(img_dc)
+    logging.debug(mem_dc)
 
 
 
@@ -77,6 +80,11 @@ def printTime(inc):
 
 
 if __name__ == '__main__':
+    import logging
+
+    LOG_FORMAT = "%(asctime)s - %(levelname)s - %(message)s"
+    logging.basicConfig(filename='my.log', level=logging.DEBUG, format=LOG_FORMAT)
+    # logging.debug("debug")
     from threading import Timer
     # 5s
     printTime(30)
